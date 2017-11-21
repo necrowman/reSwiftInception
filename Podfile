@@ -6,7 +6,7 @@ target 'reSwift' do
   use_frameworks!
   pod 'TPKeyboardAvoiding'#, '~> 3.0'
   pod 'Alamofire'#, '~> 4.5'
-  # Pods for reSwift
+  pod 'ActionSheetPicker-3.0'
 
   target 'reSwiftTests' do
     inherit! :search_paths
