@@ -39,7 +39,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeG-zG-Ech">
                                                 <rect key="frame" x="20" y="407" width="374" height="116"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ghK-lr-C5v">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ghK-lr-C5v">
                                                         <rect key="frame" x="15" y="0.0" width="359" height="57.333333333333336"/>
                                                         <color key="textColor" red="0.59215686274509804" green="0.59607843137254901" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="GothamPro" family="Gotham Pro" pointSize="18"/>
@@ -107,7 +107,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <segue destination="GGl-zN-a9t" kind="show" id="G8U-Tp-wYs"/>
+                                                            <action selector="SignInAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qsh-5Q-njh"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -164,14 +164,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="37.600000000000001" y="31.934032983508249"/>
-        </scene>
-        <!--TrendingList-->
-        <scene sceneID="uVk-Pl-B5Z">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Trending" storyboardName="TrendingList" id="GGl-zN-a9t" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e4h-G7-bLl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="638" y="19"/>
         </scene>
     </scenes>
     <resources>
