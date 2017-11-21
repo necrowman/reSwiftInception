@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SignInController: UIViewController, UITextFieldDelegate {
 
@@ -28,15 +29,19 @@ class SignInController: UIViewController, UITextFieldDelegate {
         for txtField in [emailTextField, passwordTextField] {
             txtField?.text = ""
         }
+        
+        
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    open static func setAuthToken(_ email:String, password: String) -> [String: String] {
+        let credentialData           = "\(email):\(password)".data(using: String.Encoding.utf8)!
+        let base64Credentials        = credentialData.base64EncodedString(options: [])
+        let token                    = "Basic \(base64Credentials)"
+        return ["Authorization": token,"Accept": "application/json"]
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -52,7 +57,7 @@ class SignInController: UIViewController, UITextFieldDelegate {
         default:
             break
         }
-        signInButton.isEnabled = isEmailVerification(email: email) && password.count > 5
+        signInButton.isEnabled = email.count > 5 && password.count > 5
         signInButton.backgroundColor = signInButton.isEnabled ? UIColor(red:0.56, green:0.17, blue:0.13, alpha:1.0) : .gray
         return true
     }
@@ -79,6 +84,25 @@ class SignInController: UIViewController, UITextFieldDelegate {
     
     func isEmailVerification(email: String) -> Bool {
         return email.isValidEmail()
+    }
+    
+    @IBAction func SignInAction(_ sender: UIButton) {
+        let headers: HTTPHeaders = SignInController.setAuthToken(emailTextField.text ?? "", password: passwordTextField.text ?? "")
+        Alamofire.request("https://api.github.com/user", method: .get, parameters: nil, encoding: JSONEncoding.default , headers: headers)
+            .validate(statusCode: 200..<300)
+            .validate(contentType: ["application/json"])
+            .responseJSON { response in
+                switch response.result {
+                    case .success:
+                        if let tabBarVC = UIStoryboard(name: "TrendingList", bundle: nil).instantiateViewController(withIdentifier: "TabBarController") as? UITabBarController {
+                            self.present(tabBarVC, animated: true, completion: nil)
+                        }
+                    case .failure(let error):
+                        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                }
+            }
     }
 }
 

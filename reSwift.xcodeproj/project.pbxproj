@@ -96,6 +96,9 @@
 		44CB581E1F95037A00361EE4 /* GothamProBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamProBoldItalic.ttf; sourceTree = "<group>"; };
 		44CB58201F964B9F00361EE4 /* Repositories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repositories.storyboard; sourceTree = "<group>"; };
 		44CB58231F964DDF00361EE4 /* RepositoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesController.swift; sourceTree = "<group>"; };
+		5B7A420E1FC46A6900B83ECF /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B7A42111FC46AA700B83ECF /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B7A42121FC46AA700B83ECF /* TPKeyboardAvoiding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TPKeyboardAvoiding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB698191FBE03F200EF79AD /* AddIssue.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddIssue.storyboard; sourceTree = "<group>"; };
 		5BB6981B1FBE043F00EF79AD /* AddIssueVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIssueVC.swift; sourceTree = "<group>"; };
 		5BCDCC6F1FBB130100BD5C1D /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -258,6 +261,9 @@
 		D24DC4C670750EC463E9472B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B7A42111FC46AA700B83ECF /* Alamofire.framework */,
+				5B7A42121FC46AA700B83ECF /* TPKeyboardAvoiding.framework */,
+				5B7A420E1FC46A6900B83ECF /* Alamofire.framework */,
 				B4E4ACEFE15D874A50404B53 /* Pods_reSwift.framework */,
 				C3F40A135E97B1C9460B4C4C /* Pods_reSwiftTests.framework */,
 			);
@@ -429,10 +435,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-reSwift/Pods-reSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
